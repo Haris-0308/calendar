@@ -211,3 +211,36 @@ h2 {
   cursor: pointer;
   transition: background-color 0.2s;
 }
+
+/* Responsive styles for NavigationBar */
+@media (max-width: 600px) {
+  nav[aria-label="Calendar navigation"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+  }
+
+  nav[aria-label="Calendar navigation"] > button {
+    width: 100%;
+    justify-content: center;
+    padding: 8px 0;
+  }
+
+  nav[aria-label="Calendar navigation"] > div {
+    flex-direction: row !important;
+    justify-content: space-between;
+    gap: 8px !important;
+    margin-top: 8px;
+  }
+
+  nav[aria-label="Calendar navigation"] > div > div {
+    flex: 1;
+    text-align: center;
+    padding: 8px 0;
+  }
+
+  ul[role="listbox"] {
+    width: 100% !important;
+    max-height: 150px !important;
+  }
+}
