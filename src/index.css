@@ -1,0 +1,213 @@
+/* Light theme (default) */
+:root {
+  --background-color: #f8fafc;
+  --text-color: #111111;
+  --primary-color: #1976d2;
+  --primary-color-dark: #145a9e;
+  --button-background: var(--primary-color);
+  --button-color: #fff;
+  --button-hover-background: var(--primary-color-dark);
+  --note-background: #ffd600;
+  --note-text-color: #111111;
+  --calendar-background: #fff;
+  --calendar-header-background: #333;
+  --calendar-header-text-color: #fff;
+  --calendar-day-background: #444;
+  --calendar-day-text-color: #999999;
+  --calendar-today-background: var(--primary-color);
+  --calendar-today-text-color: #fff;
+  --modal-background: #fff;
+  --modal-overlay-background: rgba(0,0,0,0.5);
+}
+
+/* Dark theme */
+html[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #dddddd;
+  --primary-color: #90caf9;
+  --primary-color-dark: #5d99c6;
+  --button-background: var(--primary-color);
+  --button-color: #000;
+  --button-hover-background: var(--primary-color-dark);
+  --note-background: #fbc02d;
+  --note-text-color: #000;
+  --calendar-background: #1e1e1e;
+  --calendar-header-background: #222;
+  --calendar-header-text-color: #eeeeee;
+  --calendar-day-background: #333;
+  --calendar-day-text-color: #cccccc;
+  --calendar-today-background: var(--primary-color);
+  --calendar-today-text-color: #000;
+  --modal-background: #333;
+  --modal-overlay-background: rgba(0,0,0,0.7);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Inter, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background-color: var(--button-background);
+  color: var(--button-color);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover,
+button:focus {
+  background-color: var(--button-hover-background);
+  outline: none;
+}
+
+nav {
+  background-color: var(--calendar-header-background);
+  color: var(--text-color);
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  background-color: var(--calendar-background);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.calendar-day-header {
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+  background-color: var(--calendar-header-background);
+  color: var(--calendar-header-text-color);
+  letter-spacing: 1px;
+}
+
+.calendar-day {
+  min-height: 75px;
+  padding: 6px;
+  background-color: var(--calendar-day-background);
+  color: var(--calendar-day-text-color);
+  border-radius: 0;
+  position: relative;
+  font-size: 16px;
+  overflow: hidden;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.calendar-day.today {
+  background-color: var(--calendar-today-background);
+  color: var(--calendar-today-text-color);
+  border-radius: 8px;
+  border: 2px solid var(--calendar-today-text-color);
+  font-weight: bold;
+}
+
+.task-indicator {
+  width: 10px;
+  height: 10px;
+  background-color: var(--note-background);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.task-text {
+  margin-top: 4px;
+  padding: 2px 4px;
+  background-color: var(--note-background);
+  color: var(--note-text-color);
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: default;
+  user-select: none;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--modal-overlay-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--modal-background);
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 300px;
+  max-width: 90vw;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+}
+
+.modal-content textarea {
+  width: 100%;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.modal-buttons {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.modal-button-delete {
+  padding: 6px 18px;
+  background-color: var(--delete-button-background, #d32f2f);
+  color: var(--button-color, #fff);
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.modal-button-cancel {
+  padding: 6px 18px;
+  background-color: var(--cancel-button-background, #ccc);
+  color: var(--cancel-button-color, #333);
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.modal-button-save {
+  padding: 6px 18px;
+  background-color: var(--primary-color);
+  color: var(--button-color, #fff);
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
